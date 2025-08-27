@@ -127,7 +127,6 @@ ngrok http 5678
 | [**Vercel**](https://vercel.com) | [Docs](https://vercel.com/docs) |
 | [**n8n**](https://n8n.io) | [Docs](https://docs.n8n.io/) |
 | [**Node.js**](https://nodejs.org) | [API Docs](https://nodejs.org/en/docs/) |
-| [**PostgreSQL**](https://www.postgresql.org) | [Docs](https://www.postgresql.org/docs/) |
 
 ### Additional References
 
