@@ -223,7 +223,7 @@ export default function App() {
     formData.append('jobDescription', jobDescription);
 
     try {
-      const response = await fetch('http://localhost:5678/webhook/file-upload', {
+      const response = await fetch('https://n8n-render-nf5f.onrender.com/webhook/file-upload', {
         method: 'POST',
         body: formData, // FormData automatically sets the correct 'Content-Type'
       });
