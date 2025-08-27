@@ -225,9 +225,11 @@ export default function App() {
     try {
       const response = await fetch('https://n8n-render-nf5f.onrender.com/webhook/file-upload', {
         method: 'POST',
-        body: formData, // FormData automatically sets the correct 'Content-Type'
+        headers: {
+          'Authorization': 'Basic ' + btoa('sygoh:Royallove_2019'),
+        },
+        body: formData,
       });
-
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}. This may be a CORS issue.`);
       }
