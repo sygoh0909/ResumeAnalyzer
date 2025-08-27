@@ -223,7 +223,7 @@ export default function App() {
     formData.append('jobDescription', jobDescription);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/webhook/file-upload`, {
         method: 'POST',
         body: formData,
       });
