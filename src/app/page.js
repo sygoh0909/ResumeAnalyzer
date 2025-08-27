@@ -223,7 +223,7 @@ export default function App() {
     formData.append('jobDescription', jobDescription);
 
     try {
-      const response = await fetch('   https://2eb4133dd905.ngrok-free.app/webhook/file-upload', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
         method: 'POST',
         body: formData,
       });
