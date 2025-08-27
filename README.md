@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📄 Resume Analyzer
 
-## Getting Started
+A web app that helps analyze and extract insights from resumes using **Next.js (frontend)** and **n8n (automation workflow)**.  
+Users can upload their resume files, and the app processes them through a connected n8n workflow for parsing and AI-powered analysis.  
 
-First, run the development server:
+---
 
-```bash
+## ✨ Features
+- 🌐 **Frontend**: Built with Next.js and deployed on Vercel  
+- ⚙️ **Backend Workflow**: Powered by n8n automation  
+- 📤 Upload resumes (PDF/DOCX)  
+- 🧠 AI analysis via Google Palm / Gemini integration  
+- 📊 Extracts structured info (skills, education, experience, etc.)  
+
+---
+
+## 🛠️ How It Works
+1. The **frontend** (Vercel-hosted Next.js) provides a file upload form.  
+2. The uploaded file is sent via **HTTP POST request** to an **n8n webhook**.  
+3. The **n8n workflow** processes the resume:  
+   - Extracts text from the PDF/DOCX  
+   - Calls AI model (Gemini) for analysis  
+   - Returns structured insights back to the frontend  
+
+⚠️ **Note**: The backend workflow (n8n) is currently self-hosted. That means it only works if the workflow owner is running it locally with ngrok or has deployed it on a cloud service.  
+
+---
+
+## 📐 Architecture Diagram
+
+```text
++-------------+       +----------------+       +----------------+       +-------------+
+|   Frontend  | ----> |   n8n Webhook  | ----> |  Extract Text  | ----> |   AI Model  |
+| (Next.js)   |       |  (Workflow)    |       |  (PDF/DOCX)    |       | (Gemini/LLM)|
++-------------+       +----------------+       +----------------+       +-------------+
+        |                                                             
+        |                                                             
+        | <---------------- Structured Result (JSON/Text) -------------+
+
+🚀 Getting Started
+
+Clone the repo
+
+git clone https://github.com/your-username/resume-analyzer.git
+cd resume-analyzer
+
+
+Install dependencies
+
+npm install
+
+
+Configure environment variables
+Create a .env.local file in the root folder:
+
+NEXT_PUBLIC_API_URL=<your-n8n-webhook-url>
+
+
+Example (when using ngrok):
+
+NEXT_PUBLIC_API_URL=https://1234abcd.ngrok-free.app/webhook/file-upload
+
+
+Run locally
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Deploy to Vercel
+Push to GitHub and connect the repo with Vercel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📥 Running the Workflow
 
-## Learn More
+If you want to run your own n8n backend:
 
-To learn more about Next.js, take a look at the following resources:
+Install n8n globally:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npm install -g n8n
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+Start n8n:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+n8n start
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+Open the editor at http://localhost:5678
+
+Import the workflow file from this repo:
+
+resume-analyzer-workflow.json
+
+Menu → Import → Paste JSON / Upload File
+
+Activate the workflow.
+
+Run ngrok to expose your local n8n:
+
+ngrok http 5678
+
+
+Copy the ngrok URL and update your .env.local in the frontend.
+
+🔑 Notes
+
+If you use someone else’s hosted workflow, it only works while their server is running.
+
+If you host your own workflow, you can run it locally or deploy n8n to a platform like Render/Railway.
+
+Don’t forget to set credentials inside n8n (e.g., Google Palm/Gemini API).
+
+📌 Tech Stack
+
+Frontend: Next.js, TailwindCSS, Vercel
+
+Automation Backend: n8n
+
+AI Model: Google Palm / Gemini
+
+👤 Author
+
+Developed by Shu Yi ✨
