@@ -223,11 +223,8 @@ export default function App() {
     formData.append('jobDescription', jobDescription);
 
     try {
-      const response = await fetch('https://n8n-render-nf5f.onrender.com/webhook/file-upload', {
+      const response = await fetch('   https://2eb4133dd905.ngrok-free.app/webhook/file-upload', {
         method: 'POST',
-        headers: {
-          'Authorization': 'Basic ' + btoa('sygoh:Royallove_2019'),
-        },
         body: formData,
       });
       if (!response.ok) {
