@@ -36,6 +36,7 @@ Users can upload their resume files, and the app processes them through a connec
         |                                                             
         |                                                             
         | <---------------- Structured Result (JSON/Text) -------------+
+```
 
 🚀 Getting Started
 
