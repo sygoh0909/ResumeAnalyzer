@@ -14,7 +14,7 @@ Users can upload their resume files, and the app processes them through a connec
 - 🌐 **Frontend**: Built with Next.js, styled with TailwindCSS, deployed on Vercel
 - ⚙️ **Backend Workflow**: Powered by n8n automation
 - 📤 Upload resumes in PDF format
-- 🧠 AI analysis via Google Palm / Gemini integration
+- 🧠 AI analysis via Google Gemini integration
 - 📊 Extracts structured information: skills, education, experience, etc.
 
 ## 🛠️ How It Works
