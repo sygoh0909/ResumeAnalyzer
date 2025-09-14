@@ -114,7 +114,7 @@ ngrok http 5678
 
 - If you host your own workflow, you can run it locally or deploy n8n to a platform like Render/Railway.
 
-- Don’t forget to set credentials inside n8n (e.g., Google Palm/Gemini API).
+- Don’t forget to set credentials inside n8n (e.g. Gemini API).
 
 ## 📌 Tech Stack & References
 
